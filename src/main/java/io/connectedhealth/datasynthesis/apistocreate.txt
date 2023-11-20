@@ -1,0 +1,33 @@
+x - refdata_devicetypes - entities, controller, api
+x - datagenerated_devices - entities (need to add refdata_devicetypes) - built and ran with refdata_devicetypes ref
+
+datagenerated_driverslicenses
+datagenerated_regexs
+datagenerated_serialnumbers
+datagenerated_addresses
+
+platform_config_dataattributes
+platform_config_datastructures
+platform_config_datastructures_dtl
+platform_industrystds_metadata
+
+refdata_codesets_crossmaps
+
+refdata_industries
+refdata_industriestobusiness
+refdata_industrystd_eventtypes
+refdata_industrystd_eventtypes_grouper
+refdata_terminologystd
+refdata_vendor
+
+No Data
+------
+refdata_professiontypes
+refdata_regextypes
+refdata_rulesets
+refdata_rulesetsdefintions
+datagenerated_custom
+terms_umls_mrconso
+terms_codeset_industrystd
+refdata_platformparams
+refdata_platformparamstodataattributes
