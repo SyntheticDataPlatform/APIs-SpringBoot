@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "platform_config_datastructures_dtl")
+@Table(name = "platform_datastructures_dtl")
 public class PlatformDataStructuresToDataAttributesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

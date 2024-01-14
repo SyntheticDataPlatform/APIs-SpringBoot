@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "platform_rulesets")
-public class PlatformRuleSetsEntity {
+@Table(name = "refdata_rulesets")
+public class RefDataRuleSetsEntity {
     private long ruleId;
     private String ruleName;
     private String createdUser;
@@ -73,7 +73,7 @@ public class PlatformRuleSetsEntity {
 			return false;
 		if (getClass() != o.getClass())
 			return false;
-		PlatformRuleSetsEntity other = (PlatformRuleSetsEntity) o;
+		RefDataRuleSetsEntity other = (RefDataRuleSetsEntity) o;
 		return java.util.Objects.equals(ruleId, other.ruleId) && java.util.Objects.equals(ruleName, other.ruleName) && java.util.Objects.equals(createdUser, other.createdUser) && 
 			java.util.Objects.equals(createdDate, other.createdDate) && java.util.Objects.equals(expirationDate, other.expirationDate) && 
 			java.util.Objects.equals(status, other.status);

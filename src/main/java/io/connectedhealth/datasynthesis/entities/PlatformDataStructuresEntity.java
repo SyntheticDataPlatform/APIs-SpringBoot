@@ -1,130 +1,39 @@
 package io.connectedhealth.datasynthesis.entities;
 
 import jakarta.persistence.*;
-
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "platform_config_datastructures")
+@Data
+@NoArgsConstructor
+@Table(name = "platform_datastructures")
 public class PlatformDataStructuresEntity {
-    private short platformDataStructuresId;
-    private String dataStructureName;
-    private Timestamp createdDate;
-    private String createdUser;
-    private String platformDataStructuresGuid;
-    private RefDataStatusEntity status;
-    private RefDataApplicationEntity registeredApp;
-    private RefDataSensitivityFlagEntity sensitivityFlag;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PlatformDataStructuresID", nullable = false)
-    public short getPlatformDataStructuresId() {
-        return platformDataStructuresId;
-    }
-
-    public void setPlatformDataStructuresId(short platformDataStructuresId) {
-        this.platformDataStructuresId = platformDataStructuresId;
-    }
-
+    @Column(name = "platformdatastructuresid", nullable = false)
+    private short platformDataStructuresId;
     @Basic
-    @Column(name = "DataStructureName", nullable = true, length = 50)
-    public String getDataStructureName() {
-        return dataStructureName;
-    }
-
-    public void setDataStructureName(String dataStructureName) {
-        this.dataStructureName = dataStructureName;
-    }
-
+    @Column(name = "datastructurename", nullable = true, length = 65)
+    private String dataStructureName;
     @Basic
-    @Column(name = "CreatedDate", nullable = true)
-    public Timestamp getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Timestamp createdDate) {
-        this.createdDate = createdDate;
-    }
-
+    @Column(name = "platformdatastructuresguid", nullable = true, length = 256)
+    private String platformDataStructuresGuid;
     @Basic
-    @Column(name = "CreatedUser", nullable = true, length = 20)
-    public String getCreatedUser() {
-        return createdUser;
-    }
-
-    public void setCreatedUser(String createdUser) {
-        this.createdUser = createdUser;
-    }
-
+    @Column(name = "createduser", nullable = true, length = 20)
+    private String createdUser;
     @Basic
-    @Column(name = "PlatformDataStructuresGUID", nullable = true, length = 38)
-    public String getPlatformDataStructuresGuid() {
-        return platformDataStructuresGuid;
-    }
-
-    public void setPlatformDataStructuresGuid(String platformDataStructuresGuid) {
-        this.platformDataStructuresGuid = platformDataStructuresGuid;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null)
-			return false;
-		if (getClass() != o.getClass())
-			return false;
-		PlatformDataStructuresEntity other = (PlatformDataStructuresEntity) o;
-		return java.util.Objects.equals(platformDataStructuresId, other.platformDataStructuresId) && java.util.Objects.equals(dataStructureName, other.dataStructureName) && java.util.Objects.equals(createdDate, other.createdDate) && 
-			java.util.Objects.equals(createdUser, other.createdUser) && java.util.Objects.equals(platformDataStructuresGuid, other.platformDataStructuresGuid) && 
-			java.util.Objects.equals(status, other.status) && java.util.Objects.equals(registeredApp, other.registeredApp) && 
-			java.util.Objects.equals(sensitivityFlag, other.sensitivityFlag);
-	}
-
-    @Override
-    public int hashCode() {
-		return java.util.Objects.hash(platformDataStructuresId, dataStructureName, createdDate, createdUser, platformDataStructuresGuid,
-					status, registeredApp, sensitivityFlag);
-	}
-
+    @Column(name = "createddate", nullable = true)
+    private Timestamp createdDate;
     @ManyToOne
-    @JoinColumn(name = "SensitivityFlagID", referencedColumnName = "SensitiveFlagID")
-    public RefDataSensitivityFlagEntity getSensitivityFlag() {
-        return sensitivityFlag;
-    }
-
-    public void setSensitivityFlag(RefDataSensitivityFlagEntity sensitivityFlag) {
-        this.sensitivityFlag = sensitivityFlag;
-    }
-
-    /*
+    @JoinColumn(name = "statusid", referencedColumnName = "StatusID")
+    private RefDataStatusEntity status;
     @ManyToOne
-    @JoinColumn(name = "StatusID", referencedColumnName = "StatusID")
-    public RefDataStatusEntity getStatus() {
-        return status;
-    }
-
-    public void setStatus(RefDataStatusEntity status) {
-        this.status = status;
-    }
-
+    @JoinColumn(name = "sensitivityflagid", referencedColumnName = "sensitiveFlagId")
+    private RefDataSensitivityFlagEntity sensitivityFlag;
     @ManyToOne
-    @JoinColumn(name = "RegisteredApp", referencedColumnName = "AppGUID")
-    public RefDataApplicationEntity getRegisteredApp() {
-        return registeredApp;
-    }
+    @JoinColumn(name = "registeredapp", referencedColumnName = "AppGUID")
+    private RefDataApplicationEntity registeredApp;
 
-    public void setRegisteredApp(RefDataApplicationEntity registeredApp) {
-        this.registeredApp = registeredApp;
-    }
-
-    public static List<PlatformDataStructuresEntity> findByStatusId(Short statusId) {
-        return find("status", new RefDataStatusEntity(statusId)).list();
-    }
-
-    public static Optional<PlatformDataStructuresEntity> findByName(String dataStructureName) {
-        return find("dataStructureName", dataStructureName).firstResultOptional();
-    }
-     */
 }

@@ -1,7 +1,6 @@
 package io.connectedhealth.datasynthesis.apis;
 // Entities and Repository Imports
-import io.connectedhealth.datasynthesis.entities.PlatformDataAttributesEntity;
-import io.connectedhealth.datasynthesis.entities.RefDataDataGenTypesEntity;
+import io.connectedhealth.datasynthesis.entities.*;
 import io.connectedhealth.datasynthesis.repository.*;
 // General Imports
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +15,21 @@ import java.util.List;
 @RequestMapping("/api")
 public class PlatformController {
     @Autowired
-    private RefDataDataGenTypesRepository dataDataGenTypesRepository;
+    private PlatformGenerationTypesRepository dataDataGenTypesRepository;
     @Autowired
     private PlatformDataAttributesRepository platformDataAttributesRepository;
+    @Autowired
+    private PlatformDataStructuresRepository platformDataStructuresRepository;
 
     // get all datagentypes
-    @GetMapping("/datagentypes")
-    public List<RefDataDataGenTypesEntity> getAllDataGenTypes(){
+    @GetMapping("/datageneration")
+    public List<PlatformDataGenerationEntity> getAllDataGenTypes(){
         return dataDataGenTypesRepository.findAll();
     }
 
     // get datagentypes by like names
-    @GetMapping("/datagentypes/desc/{datagentypedesc}")
-    public List<RefDataDataGenTypesEntity> getDataGenTypesLike(@PathVariable String datagentypedesc){
+    @GetMapping("/datageneration/desc/{datagentypedesc}")
+    public List<PlatformDataGenerationEntity> getDataGenTypesLike(@PathVariable String datagentypedesc){
         return dataDataGenTypesRepository.findByDataGenTypeDescriptionContainingIgnoreCase(datagentypedesc);
     }
     // get all platform data attributes
@@ -37,9 +38,15 @@ public class PlatformController {
         return platformDataAttributesRepository.findAll();
     }
 
-    // get datagentypes by like names
+    // get platform data attributes by like names
     @GetMapping("/platformdataattributes/desc/{datatypedesc}")
     public List<PlatformDataAttributesEntity> getDataAttributesTypesLike(@PathVariable String datatypedesc){
         return platformDataAttributesRepository.findByDataAttributeNameContainingIgnoreCase(datatypedesc);
+    }
+
+    // get all platform data attributes
+    @GetMapping("/platformdatastructures")
+    public List<PlatformDataStructuresEntity> getAllPlatformDataStructures(){
+        return platformDataStructuresRepository.findAll();
     }
 }

@@ -5,11 +5,11 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "platform_rulesetsdefinitions")
-public class PlatformRuleSetsDefinitionsEntity {
+@Table(name = "refdata_rulesetsdefinitions")
+public class RefDataRuleSetsDefinitionsEntity {
     private String rulesetDefinitionsId;
     private String rulesetDefinitionName;
-    private PlatformRuleSetsEntity ruleSet;
+    private RefDataRuleSetsEntity ruleSet;
     private Short stepOrderId;
     private RefDataOperationTypeEntity operationType;
     private String rulesetDefValue;
@@ -99,7 +99,7 @@ public class PlatformRuleSetsDefinitionsEntity {
 			return false;
 		if (getClass() != o.getClass())
 			return false;
-		PlatformRuleSetsDefinitionsEntity other = (PlatformRuleSetsDefinitionsEntity) o;
+		RefDataRuleSetsDefinitionsEntity other = (RefDataRuleSetsDefinitionsEntity) o;
 		return java.util.Objects.equals(rulesetDefinitionsId, other.rulesetDefinitionsId) && java.util.Objects.equals(rulesetDefinitionName, other.rulesetDefinitionName) && java.util.Objects.equals(ruleSet, other.ruleSet) && 
 			java.util.Objects.equals(stepOrderId, other.stepOrderId) && java.util.Objects.equals(operationType, other.operationType) && 
 			java.util.Objects.equals(rulesetDefValue, other.rulesetDefValue) && java.util.Objects.equals(createdDate, other.createdDate) && 
@@ -137,11 +137,11 @@ public class PlatformRuleSetsDefinitionsEntity {
 
     @ManyToOne
     @JoinColumn(name = "RuleSetID", referencedColumnName = "RuleID")
-    public PlatformRuleSetsEntity getRuleSet() {
+    public RefDataRuleSetsEntity getRuleSet() {
         return ruleSet;
     }
 
-    public void setRuleSet(PlatformRuleSetsEntity ruleSet) {
+    public void setRuleSet(RefDataRuleSetsEntity ruleSet) {
         this.ruleSet = ruleSet;
     }
 

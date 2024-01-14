@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "refdata_datagentypes")
-public class RefDataDataGenTypesEntity {
+@Table(name = "platform_datageneration")
+public class PlatformDataGenerationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "datagentypeid", nullable = false)
