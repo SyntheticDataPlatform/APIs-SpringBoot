@@ -1,5 +1,5 @@
 [Core Synthetic Data Platform Site](https://github.com/SyntheticDataPlatform/.github/blob/main/profile/README.md)
-# DataSynthesis - Spring Boot APIs
+# Spring Boot APIs
 
 The focus for the platform has been about enabling resources and systems to have a massive amount of data easily
 accessible and available in a highly extensible manner. When building such a system we went through several design

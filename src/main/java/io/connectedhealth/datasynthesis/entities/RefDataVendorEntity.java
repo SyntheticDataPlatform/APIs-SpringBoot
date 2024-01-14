@@ -1,6 +1,10 @@
 package io.connectedhealth.datasynthesis.entities;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/*
+import java.sql.Timestamp;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -26,7 +30,4 @@ public class RefDataVendorEntity {
     @ManyToOne
     @JoinColumn(name = "statusid", referencedColumnName = "StatusID")
     private RefDataStatusEntity status;
-
-
 }
-        */

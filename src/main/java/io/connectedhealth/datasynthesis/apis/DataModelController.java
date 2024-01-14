@@ -1,7 +1,7 @@
 package io.connectedhealth.datasynthesis.apis;
 
-import io.connectedhealth.datasynthesis.entities.DataModelDataDomainsEntity;
-import io.connectedhealth.datasynthesis.repository.DataModelDataDomainsRepository;
+import io.connectedhealth.datasynthesis.entities.*;
+import io.connectedhealth.datasynthesis.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,10 +12,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class DataModelDataDomainController {
+public class DataModelController {
 
     @Autowired
     private DataModelDataDomainsRepository dataModelDataDomainsRepository;
+    @Autowired
+    private DataModelDataTablesRepository dataModelDataTablesRepository;
 
     // get all platform data attributes
     @GetMapping("/datamodeldatadomains")
@@ -25,8 +27,20 @@ public class DataModelDataDomainController {
 
     // get datagentypes by like names
     @GetMapping("/datamodeldatadomains/desc/{datamodeldesc}")
-    public List<DataModelDataDomainsEntity> getDataGenTypesLike(@PathVariable String datamodeldesc){
+    public List<DataModelDataDomainsEntity> getDataModelDataLike(@PathVariable String datamodeldesc){
         return dataModelDataDomainsRepository.findByDomainInformationContainingIgnoreCase(datamodeldesc);
     }
+    // get all platform data attributes
+    @GetMapping("/datamodeldatatables")
+    public List<DataModelDataTablesEntity> getAllPlatformAppSettings(){
+        return dataModelDataTablesRepository.findAll();
+    }
+
+    // get datagentypes by like names
+    @GetMapping("/datamodeldatatables/desc/{datamodeldesc}")
+    public List<DataModelDataTablesEntity> getDataGenTypesLike(@PathVariable String datamodeldesc){
+        return dataModelDataTablesRepository.findByTableNameContainsIgnoreCase(datamodeldesc);
+    }
+
 
 }
