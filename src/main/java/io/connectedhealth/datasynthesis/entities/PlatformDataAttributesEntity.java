@@ -40,7 +40,7 @@ public class PlatformDataAttributesEntity {
     @Column(name = "platformtablename", nullable = true, length = 38)
     private String platformTableName;
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
@@ -59,7 +59,7 @@ public class PlatformDataAttributesEntity {
     public int hashCode() {
         return java.util.Objects.hash(platformDataAttributesId, dataAttributeName, createdDate, createdUser, platformDataAttributeGuid, platformTableName,
                 status, registeredApp, sensitivityFlag);
-    }
+    }*/
 
 
 }

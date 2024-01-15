@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
+//
+
 
 @RestController
 @RequestMapping("/api")
-public class RefDataController {
+public abstract class RefDataController {
     @Autowired
     private RefDataApplicationsRepository applicationsRepository;
     @Autowired
@@ -39,7 +41,9 @@ public class RefDataController {
     @Autowired
     private RefDataSensitivityFlagRepository sensitivityFlagRepository;
 
-
+    // get current DateTime
+    @GetMapping("/getTime")
+    public abstract String ReturnDateTime();
     // get all applications
     @GetMapping("/applications")
     public List<RefDataApplicationEntity> getAllApplications(){ return applicationsRepository.findAll();}

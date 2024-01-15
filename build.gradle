@@ -44,6 +44,8 @@ dependencies {
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     runtimeOnly 'org.postgresql:postgresql'
 
+    // GSON
+    compileOnly('com.google.code.gson:gson:2.10.1')
     // Adds Getters and Setters with @Data in Entities
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor('org.projectlombok:lombok:1.18.24')
